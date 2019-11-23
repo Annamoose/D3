@@ -1,0 +1,69 @@
+<!--
+Ann Fritz GEOG 575  - October 2019 Lab 2 D3
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+        <meta name="author" content="Ann Fritz">
+		<title>D3 Lab - AFritz GEOG 575</title>
+
+ 
+		<!--my stylesheet-->
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	</head>
+
+	<body>
+        
+    <div class="container-fluid">
+        <div id="wrapper"> 
+            <div class="intro"> 
+    
+            <h1>Ten Years of US Oil Production and Spill Response</h1>
+            <p>Oil production from 2008 to 2017 and number of staff listed as "spill response" in 2018.  This map is based on a longform infographic created in GEOG572. That infographic explored the number of staff that respond to oil spills as a ratio the barrels of oil produced in a state. I thought it would be interesting to see how the top producing states may have fluctuated over time. Oil production numbers are from the Energy Information Agency from 2008-2017. Number of staff and number of spills is difficult to assess on a state by state basis. I've found that many states divide response duties among various agencies, depending on where the spill occurs (coastal areas or on state or federal land, for example).  States environmental agencies typically do not list the how many people are in a spill response team on their websites, and most did not return my request for information so it was difficult to evaluate how many staff are available to respond to oil spills. Some states did not even list oil spill occurances, rather they have only a spill reporting website.</p>  
+ 
+             </div>
+        </div>
+    </div>
+
+        <!-- footer with source data information-->     
+<!--   <hr>-->
+    <div class="footer">
+          <div class="text-center col-lg-6 offset-lg-3">
+             <h4> </h4>
+             <p>Ann Fritz &middot; GEOG 575 Lab 2 &middot; 2019 &middot; Ten years of oil production statistics</p> 
+              <p>Oil production data found at 
+                
+                  <a href="http://www.eia.gov/dnav/pet/pet_crd_crpdn_adc_mbbl_a.htm">Energy Information Agency</a>, accessed September 2018. Number of spill response staff determined through FOIA requests and online searches of spill response staff conducted for top 20 oil producing states, September-October 2018.</p>
+          </div>
+    </div>  
+
+<!-- topojson library-->
+        <script type="text/javascript" src="lib/topojson.js"></script>
+         
+<!-- d3 queue library-->
+        <script type="text/javascript" src="lib/d3-queue.js"></script>          
+ 
+<!-- simple statistics hosted-->
+        <script type="text/javascript" src="https://unpkg.com/simple-statistics@7.0.2/dist/simple-statistics.min.js"></script>    
+        
+<!-- main d3v4 library (hosted)
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/d3js/4.13.0/d3.min.js"></script>-->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.8.0/d3.min.js"></script>
+        
+        <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>       
+        
+<!--main js script-->
+		<script type="text/javascript" src="js/main.js"></script>
+    
+ 
+	</body>
+
+</html>
