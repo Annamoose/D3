@@ -18,7 +18,7 @@
     var expressed = attrArray[0];  //initial attribute
     
         //chart frame dimensions
-    var chartWidth = window.innerWidth * 0.425,
+    var chartWidth = window.innerWidth * 0.325,
         chartHeight = 460,
         leftPadding = 20,
         rightPadding = 2,
@@ -58,7 +58,7 @@ function setMap(){
     
    //use d3.queue to load data
     d3.queue()
-    .defer(d3.csv, "data/USEmployment.csv") //csv attributes 
+    .defer(d3.csv, "data/USEmployment1.csv") //csv attributes 
     .defer(d3.json, "data/states1.topojson") //topojson states 
     .await(callback); 
     
