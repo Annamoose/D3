@@ -18,7 +18,7 @@
     var expressed = attrArray[0];  //initial attribute
     
         //chart frame dimensions
-    var chartWidth = window.innerWidth * 0.325,
+    var chartWidth = window.innerWidth * 0.425,
         chartHeight = 460,
         leftPadding = 20,
         rightPadding = 2,
@@ -35,7 +35,7 @@
 window.onload = setMap();
 
 function setMap(){
-    var width = 960,  
+    var width = window.innerWidth * 0.5,
         height = 600;
     
     //creates container for map; 
@@ -59,7 +59,7 @@ function setMap(){
    //use d3.queue to load data
     d3.queue()
     .defer(d3.csv, "data/USEmployment1.csv") //csv attributes 
-    .defer(d3.json, "data/states1.topojson") //topojson states 
+    .defer(d3.json, "data/states.topojson") //topojson states 
     .await(callback); 
     
     function callback(error, csv, states){
@@ -68,10 +68,11 @@ function setMap(){
     //translate states topojson  
     var stateData = topojson.feature(states, states.objects.states).features;
         
-    console.log("test: after translate topojson");  
+    console.log("test: after translate topojson", stateData);  
 
   //call joinData to join csv to state geojson
-    stateJoin = joinData(stateData, csv);  
+    stateData = joinData(stateData, csv);  
+        console.log("stateData:", stateData); 
         
     //create the colorscale    
     var colorScale = makeColorScale(csv); 
@@ -118,21 +119,20 @@ function joinData(stateData, csv){
         //console.log("csvKey:", csvKey);
  
         //loop through geojson states to find correct one
-       for (var a=0; a<stateData.length; a++){               
+       for (var a=0; a<stateData.length; a++){  
+
+           
               var geojsonProps = stateData[a].properties;
               var geojsonKey = geojsonProps.name;
            
-           //console.log("geojsonKey:", geojsonKey);
-              
-              if (geojsonKey == csvKey) {
-                  
-                  attrArray.forEach(function(attr){
+                    if (geojsonKey == csvKey) {
+                    attrArray.forEach(function(attr){
                      var val = parseFloat(csvRegion[attr]);
                     geojsonProps[attr] = val; 
                   }); //end of .forEach function
-            } //end of if statement
-        }  //end of inner for loop  
-    } //end of outer for loop
+            }; //end of if statement
+        };  //end of inner for loop  
+    }; //end of outer for loop
    
     console.log("line 133, states:", stateData); //values linked, but NaN
     
